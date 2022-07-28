@@ -1,27 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Beaufort;
+  src: url('../fonts/Beaufort.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: Beaufort;
+  src: url('../fonts/Beaufort.eot'); /* IE9*/
+  src: url('../fonts/Beaufort.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../fonts/Beaufort.woff2') format('woff2'),
+    /* chrome、firefox */ url('../fonts/Beaufort.woff') format('woff'),
+    /* chrome、firefox */ url('../fonts/Beaufort.ttf') format('truetype');
+}
+
 body {
+  background-color: #00101f;
   margin: 0;
 }
 
+.background {
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  transition: opacity 150ms linear;
+  top: 0;
+  width: 100vw;
+
+  &.background-hidden {
+    opacity: 0;
+  }
+}
+
 .app {
-  align-items: center;
-  background-color: #000;
   color: #fff;
-  display: flex;
-  font-family: 'Roboto', Arial, sans-serif;
-  justify-content: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   min-height: 100vh;
+  position: absolute;
   width: 100vw;
 }
 
-.coming-soon {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  font-size: 2rem;
-  font-weight: 100;
-  margin-bottom: 1rem;
+.title {
+  color: #f0e6d2;
+  font-family: Beaufort, serif;
+  font-size: 6rem;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+}
 
-  > span {
-    margin-top: 0.5rem;
-  }
+.subtitle {
+  color: #785a28;
+  font-family: Beaufort, serif;
+  font-size: 1rem;
+  letter-spacing: 0.1875rem;
+  text-transform: uppercase;
 }

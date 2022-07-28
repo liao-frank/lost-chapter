@@ -1,13 +1,34 @@
+import classNames from 'classnames'
+import { useEffect, useState } from 'react'
+
+import backgroundPath from '../images/background.png'
 import './App.scss'
-import { LostChapterIcon } from './Icon'
+import { Landing } from './Landing'
 
 export const App = () => {
+  const [backgroundSrc, setBackgroundSrc] = useState<string | undefined>()
+
+  useEffect(() => {
+    const image = new Image()
+
+    image.onload = () => void setBackgroundSrc(backgroundPath)
+    image.src = backgroundPath
+  }, [])
+
   return (
-    <div className="app">
-      <div className="coming-soon">
-        <LostChapterIcon size="16rem" />
-        <span>Coming soon</span>
+    <>
+      <div
+        className={classNames(
+          'background',
+          !backgroundSrc && 'background-hidden'
+        )}
+        style={{ backgroundImage: backgroundSrc && `url(${backgroundSrc})` }}
+      ></div>
+      <div className="app">
+        <div className="container mx-auto">
+          <Landing />
+        </div>
       </div>
-    </div>
+    </>
   )
 }
