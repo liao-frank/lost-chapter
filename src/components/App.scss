@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+}
+
+.app {
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  font-family: 'Roboto', Arial, sans-serif;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.coming-soon {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+  font-weight: 100;
+  margin-bottom: 1rem;
+
+  > span {
+    margin-top: 0.5rem;
+  }
+}

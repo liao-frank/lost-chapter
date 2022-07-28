@@ -1,0 +1,83 @@
+.icon {
+  height: 2rem;
+  width: 2rem;
+}
+
+.lost-chapter-icon {
+  $levitate-duration: 4s;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  * {
+    background-position: center center;
+    background-size: cover;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+
+  &.active,
+  &:hover {
+    .lost-chapter-icon-levitate,
+    .lost-chapter-icon-glow,
+    .lost-chapter-icon-rays {
+      animation: none;
+    }
+  }
+
+  .lost-chapter-icon-levitate {
+    animation: $levitate-duration ease-in-out infinite levitate alternate;
+    transform: translateY(-2%);
+  }
+
+  $levitateDelayedCount: 3;
+  @for $i from 0 to $levitateDelayedCount {
+    .lost-chapter-icon-levitate:nth-child(#{$i + 2}) {
+      animation-delay: 400ms + 800ms * ($i);
+    }
+  }
+
+  .lost-chapter-icon-glow {
+    animation: $levitate-duration infinite glow alternate;
+  }
+
+  .lost-chapter-icon-rays {
+    animation: $levitate-duration infinite rays alternate;
+  }
+
+  $rayCount: 4;
+  @for $i from 0 to $rayCount {
+    .lost-chapter-icon-rays > *:nth-child(#{$i + 1}) {
+      animation: 1s 750ms * $i infinite rays alternate;
+    }
+  }
+
+  @keyframes levitate {
+    from {
+      transform: translateY(-2%);
+    }
+    to {
+      transform: translateY(2%);
+    }
+  }
+
+  @keyframes glow {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes rays {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0.4;
+    }
+  }
+}
