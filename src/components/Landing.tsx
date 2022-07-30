@@ -1,13 +1,13 @@
 import classNames from 'classnames'
 import { debounce } from 'lodash'
 import { useCallback, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { isWebUri } from 'valid-url'
 
 import { SOURCE_URL_LOCALSTORAGE_KEY } from '../consts'
-import { isValidData } from '../lib/hooks/data'
+import { isValidData } from '../lib/data'
 import useFetch from '../lib/hooks/useFetch'
 import { useLocalStorageString } from '../lib/hooks/useLocalStorage'
+import { useNavigate } from '../lib/hooks/useNavigate'
 import { useSecretPhrase } from '../lib/hooks/useSecretPhrase'
 import { LostChapterIcon } from './Icon'
 

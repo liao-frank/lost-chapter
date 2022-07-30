@@ -1,9 +1,8 @@
-import { useNavigate } from 'react-router-dom'
-
 import { SOURCE_URL_LOCALSTORAGE_KEY } from '../consts'
-import { isValidData } from '../lib/hooks/data'
+import { isValidData } from '../lib/data'
 import useFetch from '../lib/hooks/useFetch'
 import { useLocalStorageString } from '../lib/hooks/useLocalStorage'
+import { useNavigate } from '../lib/hooks/useNavigate'
 import './Dashboard.scss'
 import { Scrollable } from './Scrollable'
 
