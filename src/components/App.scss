@@ -41,9 +41,72 @@ body {
   color: #fff;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  min-height: 100vh;
+  height: 100vh;
+  letter-spacing: 0.03125rem;
+  overflow: auto;
   position: absolute;
   width: 100vw;
+}
+
+button {
+  border: 0.0625rem solid #2f261c;
+  color: #f0e6d2;
+  font-family: Beaufort, serif;
+  font-size: 1.125rem;
+  min-width: 10rem;
+  padding: 0.625rem 1rem;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 0;
+
+  $inner-border-width: 0.1875rem;
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+  }
+
+  // Blue.
+  &:before {
+    background: linear-gradient(#08bbb5, #01678b);
+    bottom: $inner-border-width + 0.0625rem;
+    left: $inner-border-width + 0.0625rem;
+    right: $inner-border-width + 0.0625rem;
+    top: $inner-border-width + 0.0625rem;
+  }
+  &:hover:before {
+    background: linear-gradient(#aaf5ff, #3dafd6);
+  }
+
+  // Grey.
+  &:after {
+    background-color: #1e2328;
+    bottom: 2 * $inner-border-width;
+    left: 2 * $inner-border-width;
+    right: 2 * $inner-border-width;
+    top: 2 * $inner-border-width;
+  }
+}
+
+input {
+  background-color: rgb(3, 6, 8);
+  border: 0.0625rem solid #785a28;
+  border-radius: 0;
+  letter-spacing: 0.0625rem;
+  padding: 0.375rem 1rem;
+  position: relative;
+
+  &::placeholder {
+    color: #a09b8c;
+  }
+
+  &:focus,
+  &:focus-within {
+    background-color: rgba(3, 6, 8, 0.4);
+    border-color: #b3955c;
+    outline: none;
+  }
 }
 
 .title {
@@ -52,6 +115,12 @@ body {
   font-size: 6rem;
   letter-spacing: 0.5rem;
   text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 3rem;
+  }
 }
 
 .subtitle {

@@ -17,13 +17,18 @@ import './Icon.scss'
 
 export const LostChapterIcon = ({
   active,
+  className,
   height,
   size,
   width,
 }: IconProps & { active?: boolean }) => {
   return (
     <div
-      className={classNames('icon lost-chapter-icon', active && 'active')}
+      className={classNames(
+        'icon lost-chapter-icon',
+        active && 'active',
+        className
+      )}
       style={{ height: height || size, width: width || size }}
     >
       {/* Main pages + glows. */}
@@ -68,6 +73,7 @@ export const LostChapterIcon = ({
 }
 
 interface IconProps {
+  className?: string
   height?: number | string
   size?: number | string
   width?: number | string

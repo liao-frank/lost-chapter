@@ -1,13 +1,14 @@
 import classNames from 'classnames'
 import { useEffect, useState } from 'react'
+import { Outlet } from 'react-router-dom'
 
 import backgroundPath from '../images/background.png'
 import './App.scss'
-import { Landing } from './Landing'
+import { Scrollable } from './Scrollable'
 
 export const App = () => {
+  // Lazy load fancy background.
   const [backgroundSrc, setBackgroundSrc] = useState<string | undefined>()
-
   useEffect(() => {
     const image = new Image()
 
@@ -24,11 +25,11 @@ export const App = () => {
         )}
         style={{ backgroundImage: backgroundSrc && `url(${backgroundSrc})` }}
       ></div>
-      <div className="app">
-        <div className="container mx-auto">
-          <Landing />
+      <Scrollable className="app">
+        <div className="container h-full mx-auto">
+          <Outlet />
         </div>
-      </div>
+      </Scrollable>
     </>
   )
 }
