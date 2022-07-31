@@ -1,5 +1,3 @@
-import classNames from 'classnames'
-
 import lostChapterBit1GlowPath from '../images/lost-chapter-bit-1-glow.png'
 import lostChapterBit1Path from '../images/lost-chapter-bit-1.png'
 import lostChapterBit2GlowPath from '../images/lost-chapter-bit-2-glow.png'
@@ -14,6 +12,8 @@ import lostChapterRays3Path from '../images/lost-chapter-rays-3.png'
 import lostChapterRays4Path from '../images/lost-chapter-rays-4.png'
 import lostChapterSoftGlowPath from '../images/lost-chapter-soft-glow.png'
 import './Icon.scss'
+
+import classNames from 'classnames'
 
 export const LostChapterIcon = ({
   active,
@@ -72,9 +72,52 @@ export const LostChapterIcon = ({
   )
 }
 
+export const Icon = ({
+  className,
+  height,
+  onClick,
+  size,
+  src,
+  width,
+}: IconProps & { src: string }) => {
+  return (
+    <div
+      className={classNames('icon', className)}
+      onClick={onClick}
+      style={{
+        backgroundImage: `url(${src})`,
+        height: height || size,
+        width: width || size,
+      }}
+    ></div>
+  )
+}
+
+export const ImageIcon = ({
+  className,
+  height,
+  onClick,
+  size,
+  src,
+  width,
+}: IconProps & { src: string }) => {
+  return (
+    <img
+      className={classNames('icon', className)}
+      onClick={onClick}
+      src={src}
+      style={{
+        height: height || size,
+        width: width || size,
+      }}
+    />
+  )
+}
+
 interface IconProps {
   className?: string
   height?: number | string
+  onClick?: () => void
   size?: number | string
   width?: number | string
 }

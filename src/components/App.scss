@@ -130,3 +130,57 @@ input {
   letter-spacing: 0.1875rem;
   text-transform: uppercase;
 }
+
+h1 {
+  color: #f0e6d2;
+  font-family: Beaufort, serif;
+  font-size: 2rem;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+}
+
+.with-tooltip {
+  cursor: help;
+  overflow: visible;
+  position: relative;
+
+  &:before {
+    background-color: #010a13;
+    border: 0.125rem solid #463714;
+    border-image: linear-gradient(#463714, #60491e);
+    border-image-slice: 1;
+    border-width: 0.125rem;
+    bottom: calc(100% + 0.5rem);
+    color: #a09b8c;
+    content: attr(data-tooltip-content);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+      sans-serif;
+    font-weight: 400;
+    left: 50%;
+    transition: opacity 150ms;
+    opacity: 0;
+    padding: 0.875rem 0.75rem;
+    position: absolute;
+    transform: translateX(-50%);
+    visibility: hidden;
+    white-space: nowrap;
+  }
+
+  &:hover:before {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.clickable {
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+}

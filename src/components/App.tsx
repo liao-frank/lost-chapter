@@ -1,9 +1,10 @@
+import backgroundPath from '../images/background.png'
+import './App.scss'
+
 import classNames from 'classnames'
 import { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 
-import backgroundPath from '../images/background.png'
-import './App.scss'
 import { Scrollable } from './Scrollable'
 
 export const App = () => {
@@ -26,7 +27,7 @@ export const App = () => {
         style={{ backgroundImage: backgroundSrc && `url(${backgroundSrc})` }}
       ></div>
       <Scrollable className="app">
-        <div className="container h-full mx-auto">
+        <div className="h-full mx-auto w-full">
           <Outlet />
         </div>
       </Scrollable>
