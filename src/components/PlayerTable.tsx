@@ -72,23 +72,19 @@ export const PlayerTable = ({
     />
   )
 
-  const headHeight = '2.75rem'
-
   return (
     <div className={classNames(className, 'relative w-full')}>
       <RoleSelector currSelector={dataSelector} onSelector={setDataSelector} />
       <div className="mt-12 relative">
-        <div className={`max-h-[${headHeight}] overflow-hidden`}>
+        <div className="max-h-[2.75rem]">
           <table className="table-auto" style={{ width: tableWidth }}>
             {header}
             <PlayerTableBody className="invisible" players={playersArr} />
           </table>
         </div>
-        <Scrollable
-          className={`!absolute h-[32rem] top-[${headHeight}] w-full`}
-        >
+        <Scrollable className="!absolute h-[32rem] top-[2.75rem] w-full">
           <table
-            className={`table-auto -translate-y-[${headHeight}]`}
+            className="table-auto -translate-y-[2.75rem]"
             style={{ width: tableWidth }}
           >
             {header}

@@ -124,7 +124,11 @@ const useSourceUrl = (): {
   })
 
   return {
-    error,
+    error: validated
+      ? undefined
+      : inputUrl && !getValidUrl(inputUrl)
+      ? new Error('Please enter a valid URL or server name')
+      : error,
     validating: fetching,
     sourceUrl: inputUrl,
     setSourceUrl: (url: string) => {
@@ -139,8 +143,7 @@ const useSourceUrl = (): {
       const validUrl = getValidUrl(url)
       if (validUrl) {
         setCachedUrlDebounced(validUrl)
-      } else if (url) {
-        setError(new Error('Please enter a valid URL or server name'))
+      } else {
         setCachedUrlDebounced.cancel()
       }
     },
@@ -149,6 +152,9 @@ const useSourceUrl = (): {
 }
 
 const getValidUrl = (maybeUrl: string): string => {
+  const nicknamed = URL_NICKNAMES[maybeUrl.toLowerCase().replace(/\s/g, '')]
+  if (nicknamed) maybeUrl = nicknamed
+
   maybeUrl = maybeUrl.trim()
 
   if (!maybeUrl.startsWith('http')) maybeUrl = 'http://' + maybeUrl
@@ -160,4 +166,8 @@ const getValidUrl = (maybeUrl: string): string => {
   }
 
   return ''
+}
+
+const URL_NICKNAMES: { [nickname: string]: string } = {
+  leaguebois: 'https://league-bois-lost-chapter.herokuapp.com/',
 }
