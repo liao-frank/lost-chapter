@@ -24,7 +24,7 @@ export const getGpm = (data: PlayerData) => {
 }
 
 export const getKda = (data: PlayerData) => {
-  return roundNumber((data.kills + data.assists) / data.deaths, 2)
+  return roundNumber((data.kills + data.assists) / (data.deaths || 1), 2)
 }
 
 export const getVspm = (data: PlayerData) => {
@@ -32,7 +32,7 @@ export const getVspm = (data: PlayerData) => {
 }
 
 export const getWr = (data: PlayerData) => {
-  return roundNumber(data.wins / data.gamesPlayed, 4) * 100
+  return roundNumber((data.wins / data.gamesPlayed) * 100, 2)
 }
 
 export interface Data {

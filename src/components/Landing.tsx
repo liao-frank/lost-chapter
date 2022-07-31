@@ -23,7 +23,7 @@ export const Landing = () => {
     useSourceUrl()
 
   return (
-    <div className="container flex flex-col items-center justify-center h-screen pb-8">
+    <div className="container flex flex-col items-center justify-center h-screen mx-auto pb-8">
       <a href="https://github.com/liao-frank/lost-chapter" target="_blank">
         <LostChapterIcon className="h-80 max-w-full w-80 sm:h-[32rem] sm:w-[32rem]" />
       </a>

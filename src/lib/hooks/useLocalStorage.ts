@@ -1,6 +1,6 @@
 import { useLocalStorage } from 'usehooks-ts'
 
-export const useLocalStorageString = <T extends string = string>(
+export const useLocalStorageString = <T = string>(
   key: string,
   initialValue: T
 ): [T, (value: T) => void] => {
