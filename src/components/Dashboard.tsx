@@ -1,21 +1,20 @@
 import './Dashboard.scss'
 
+import { Link, Navigate } from 'react-router-dom'
+
 import { SOURCE_URL_LOCALSTORAGE_KEY } from '../consts'
 import { isValidData } from '../lib/data'
 import useFetch from '../lib/hooks/useFetch'
 import { useLocalStorageString } from '../lib/hooks/useLocalStorage'
-import { useNavigate } from '../lib/hooks/useNavigate'
 import { LostChapterIcon } from './Icon'
 import { PlayerTable } from './PlayerTable'
 
 export const Dashboard = () => {
-  const navigate = useNavigate()
-
   const [sourceUrl] = useLocalStorageString(SOURCE_URL_LOCALSTORAGE_KEY, '')
-  if (!sourceUrl) navigate('/')
+  if (!sourceUrl) return <Navigate to="/"></Navigate>
 
   const { data, error } = useFetch<any>(sourceUrl)
-  if (error || (data && !isValidData(data))) navigate('/')
+  if (error || (data && !isValidData(data))) return <Navigate to="/"></Navigate>
 
   return (
     <div className="dashboard container">
@@ -28,9 +27,9 @@ export const Dashboard = () => {
           <LostChapterIcon className="relative right-2" size="3rem" />
           <h1>Lost Chapter</h1>
         </a>
-        <button onClick={() => void navigate('/')}>
-          Change&nbsp;&nbsp;Servers
-        </button>
+        <Link to="/">
+          <button>Change&nbsp;&nbsp;Servers</button>
+        </Link>
       </nav>
       <hr className="border-[#3d4244] min-w-full w-screen" />
       {data ? (

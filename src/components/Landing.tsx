@@ -1,18 +1,17 @@
 import classNames from 'classnames'
 import { debounce } from 'lodash'
 import { useCallback, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { isWebUri } from 'valid-url'
 
 import { SOURCE_URL_LOCALSTORAGE_KEY } from '../consts'
 import { isValidData } from '../lib/data'
 import useFetch from '../lib/hooks/useFetch'
 import { useLocalStorageString } from '../lib/hooks/useLocalStorage'
-import { useNavigate } from '../lib/hooks/useNavigate'
 import { useSecretPhrase } from '../lib/hooks/useSecretPhrase'
 import { LostChapterIcon } from './Icon'
 
 export const Landing = () => {
-  const navigate = useNavigate()
   const isBetaTester = useSecretPhrase(
     'imbetatester',
     'imnotbetatester',
@@ -53,13 +52,9 @@ export const Landing = () => {
               {error && <span className="text-[#EF5350]">{error.message}</span>}
               {validating && <span>Checking server data...</span>}
               {validated && (
-                <button
-                  onClick={() => {
-                    navigate('/dashboard')
-                  }}
-                >
-                  Enter
-                </button>
+                <Link to="/dashboard">
+                  <button>Enter</button>
+                </Link>
               )}
             </div>
           </>
