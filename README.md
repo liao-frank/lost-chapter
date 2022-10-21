@@ -1,4 +1,4 @@
-_Preface: This project is inactive. My friends and I have been using a Google Sheet which is easier to maintain. In the future, this project could be migrated to an Apps Script that exists on top of a Google Sheet._
+_Preface: This project is inactive and the repo for the server side is now private. My friends and I have been using a Google Sheet which is easier to maintain. In the future, this project could be migrated to an Apps Script that exists on top of a Google Sheet._
 
 ----
 
